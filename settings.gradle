@@ -1,0 +1,3 @@
+rootProject.name = 'Punisys'
+include 'customer', 'product', 'supplier'
+
