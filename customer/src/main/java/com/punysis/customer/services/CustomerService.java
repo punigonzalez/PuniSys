@@ -15,12 +15,24 @@ public class CustomerService {
     CustomerRepository customerRepository;
 
 
-    public List<Customer> getAll(Long id){
-        return customerRepository.findAll();
+
+    // crea el usuario sin que se repita el mail
+    public Customer create(Customer c){
+        if (customerRepository.findByEmail(c.getEmail()).isPresent()) {
+            throw new IllegalArgumentException("El email ya está registrado.");
+        }
+
+        if (customerRepository.findByPhone(c.getPhone()).isPresent()) {
+            throw new IllegalArgumentException("El teléfono ya está registrado.");
+        }
+        if (customerRepository.findByUsername(c.getUsername()).isPresent()){
+            throw new IllegalArgumentException("El usuario ya esta registrado.");
+        }
+        return customerRepository.save(c);
     }
 
-    public Customer create(Customer c){
-        return customerRepository.save(c);
+    public List<Customer> getAll(){
+        return customerRepository.findAll();
     }
 
     public Optional<Customer> getById(Long id){
@@ -28,7 +40,7 @@ public class CustomerService {
     }
 
     public Optional<Customer> getByUsername(String username){
-        return customerRepository.findUsername(username);
+        return customerRepository.findByUsername(username);
     }
 
     public void deleteById(Long id){
@@ -43,8 +55,8 @@ public class CustomerService {
     }
 
     //filter
-    public List<Customer> filterUsername(String username){
-        return customerRepository.filterByName(username);
+    public List<Customer> filterByName(String name){
+        return customerRepository.filterByName(name);
     }
 
 }
