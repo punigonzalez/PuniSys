@@ -50,7 +50,7 @@ public class CustomerService {
         customerRepository.deleteByUsername(username);
     }
 
-    public Customer update(Customer c){
+    public Customer save(Customer c){
         return customerRepository.save(c);
     }
 
