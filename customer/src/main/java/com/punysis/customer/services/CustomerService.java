@@ -21,10 +21,6 @@ public class CustomerService {
         if (customerRepository.findByEmail(c.getEmail()).isPresent()) {
             throw new IllegalArgumentException("El email ya está registrado.");
         }
-
-        if (customerRepository.findByPhone(c.getPhone()).isPresent()) {
-            throw new IllegalArgumentException("El teléfono ya está registrado.");
-        }
         if (customerRepository.findByUsername(c.getUsername()).isPresent()){
             throw new IllegalArgumentException("El usuario ya esta registrado.");
         }
