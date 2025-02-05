@@ -35,7 +35,7 @@ public class SupplierController {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Proveedor no encontrado.");
     }
 
-    @GetMapping("/{name}")
+    @GetMapping("/name/{name}")
     public ResponseEntity<?> getByName(@PathVariable String name){
         Optional<Supplier> supplier = supplierService.getByName(name);
         if(supplier.isPresent()){
@@ -72,11 +72,11 @@ public class SupplierController {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Proveedor no encontrado.");
     }
 
-    @DeleteMapping("/id")
+    @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteById(@PathVariable Long id){
         Optional<Supplier> s = supplierService.getById(id);
         if(s.isPresent()){
-            supplierService.deleteByid(id);
+            supplierService.deleteById(id);
             return ResponseEntity.ok().build();
         }
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Proveedor no encontrado.");

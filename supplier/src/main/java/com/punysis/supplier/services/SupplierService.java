@@ -43,7 +43,7 @@ public class SupplierService {
         return supplierRepository.save(s);
     }
 
-    public void deleteByid(Long id){
+    public void deleteById(Long id){
          supplierRepository.deleteById(id);
     }
 
