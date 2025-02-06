@@ -7,7 +7,6 @@ import java.math.BigDecimal;
 
 @Data @NoArgsConstructor @AllArgsConstructor
 @Entity
-@Table(name = "Productos")
 
 public class Product {
 
