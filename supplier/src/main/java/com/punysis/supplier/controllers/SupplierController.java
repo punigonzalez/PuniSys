@@ -71,7 +71,6 @@ public class SupplierController {
         }
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Proveedor no encontrado.");
     }
-
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteById(@PathVariable Long id){
         Optional<Supplier> s = supplierService.getById(id);
