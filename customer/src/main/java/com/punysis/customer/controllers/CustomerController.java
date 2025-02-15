@@ -72,6 +72,7 @@ public class CustomerController {
         return ResponseEntity.ok(customers);
     }
 
+    // ARREGLAR ESTE METODO
     //actualizar cliente por id con patch
     @PatchMapping("/update/{id}")
     public ResponseEntity<?> updateCustomerById(@PathVariable Long id, @RequestBody Customer c){
