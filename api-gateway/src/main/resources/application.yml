@@ -1,4 +1,9 @@
+server:
+  port: 8134
+
 spring:
+  application:
+    name: api-gateway
   cloud:
     gateway:
       routes:
@@ -22,3 +27,7 @@ spring:
         cors-mappings:
           - allowed-origins: "*"
             allowed-methods: "*"
+
+eureka:
+  instance:
+    instance-id: =${spring.application.name}:${random.uuid}
