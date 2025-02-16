@@ -12,3 +12,6 @@ spring:
 server:
   port: 8888
 
+eureka:
+  instance:
+    instance-id: =${spring.application.name}:${random.uuid}

@@ -7,6 +7,11 @@ spring:
   cloud:
     gateway:
       routes:
+        - id: configService-service
+          uri: http://localhost:8888
+          predicates:
+            - Path=/config-server/**
+
         - id: product-service
           uri: http://localhost:8082  # Dirección de tu microservicio de productos
           predicates:
