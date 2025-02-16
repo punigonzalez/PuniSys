@@ -8,7 +8,6 @@ spring:
           uri: https://github.com/punigonzalez/PuniSys-configuration-repo #url de donde estan las config
           clone-on-start: true   # para que cuando se inicie el servicio, haga el clonado del repositorio
 
-
 server:
   port: 8888
 
