@@ -8,7 +8,7 @@ spring:
     gateway:
       routes:
         - id: configService-service
-          uri: http://localhost:8888
+          uri: http://localhost:8089
           predicates:
             - Path=/config-server/**
 
