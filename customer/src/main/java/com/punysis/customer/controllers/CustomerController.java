@@ -33,13 +33,13 @@ public class CustomerController {
         return ResponseEntity.created(location).body(newCustomer);
     }
 
-    // devolver todos los clientes
+    // Obtener todos los clientes
     @GetMapping
     public List<Customer> getAllCustomers(){
         return customerService.getAll();
     }
 
-    // devolver cliente por id
+    // Obtener cliente por id
     @GetMapping("/{id}")
     public ResponseEntity<?> getCutomerById(@PathVariable Long id){
         if (id ==null || id < 0 ){
@@ -62,7 +62,7 @@ public class CustomerController {
         return ResponseEntity.ok(c);
     }
 
-    //filtrar cliente por nombre
+    // Filtrar cliente por nombre
     @GetMapping("/filter")
     public ResponseEntity<?> filterCustomersByName(@RequestParam("name") String name){
         List<Customer> customers = customerService.filterByName(name);
@@ -73,7 +73,7 @@ public class CustomerController {
     }
 
     // ARREGLAR ESTE METODO
-    //actualizar cliente por id con patch
+    // Actualizar cliente por id con patch
     @PatchMapping("/update/{id}")
     public ResponseEntity<?> updateCustomerById(@PathVariable Long id, @RequestBody Customer c){
         if(id==null || id<0){
@@ -96,7 +96,7 @@ public class CustomerController {
     }
 
 
-    // eliminar cliente por id
+    // Eliminar cliente por id
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteCustomerById(@PathVariable Long id){
         if(id==null || id<0){
